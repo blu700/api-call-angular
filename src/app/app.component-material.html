@@ -1,32 +1,46 @@
-<div  class="ng-container">
+<div class="ng-container">
   <div class="jumbotron">
     Appliances
   </div>
 </div>
 <div class="example-container mat-elevation-z8">
-<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-      <mat-cell *matCellDef="let row" [matTooltip]="row.brand + ': ' + row.equipment"> {{row.id}} </mat-cell>
+      <mat-cell *matCellDef="let row" 
+                  [matTooltip]="row.brand + ': ' + row.equipment"
+                  [matTooltipShowDelay]="showDelay.value" 
+                  [matTooltipHideDelay]="hideDelay.value"
+                  > {{row.id}} 
+                </mat-cell>
     </ng-container>
-  
+
 
     <ng-container matColumnDef="brand">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Brand </mat-header-cell>
-      <mat-cell *matCellDef="let row" [matTooltip]="row.brand + ': ' + row.equipment + ' | id: ' + row.id"> {{row.brand}} </mat-cell>
+      <mat-cell *matCellDef="let row" 
+                  [matTooltip]="row.brand + ': ' + row.equipment + ' | id: ' + row.id"
+                  [matTooltipShowDelay]="showDelay.value" 
+                  [matTooltipHideDelay]="hideDelay.value"
+                  > {{row.brand}} 
+                </mat-cell>
     </ng-container>
-  
+
 
     <ng-container matColumnDef="equipment">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Equipment </mat-header-cell>
-      <mat-cell *matCellDef="let row" [matTooltip]="row.brand + ': ' + row.equipment"> {{row.equipment}} </mat-cell>
+      <mat-cell *matCellDef="let row" 
+                  [matTooltip]="row.brand + ': ' + row.equipment"
+                  [matTooltipShowDelay]="showDelay.value" 
+                  [matTooltipHideDelay]="hideDelay.value"
+                  > {{row.equipment}} 
+                </mat-cell>
     </ng-container>
-  
+
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
     <mat-row matRipple *matRowDef="let row; columns: displayedColumns;" class="mat-row"></mat-row>
- </mat-table>
+  </mat-table>
 
- <mat-paginator #dataPaginator [pageSizeOptions]="[20, 40, 60]"></mat-paginator>
+  <mat-paginator #dataPaginator [pageSizeOptions]="[20, 40, 60]"></mat-paginator>
 </div>
-

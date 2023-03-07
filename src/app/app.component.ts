@@ -4,6 +4,7 @@ import { Product } from './common/product';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator'
 import { MatSort } from '@angular/material/sort'
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,9 @@ import { MatSort } from '@angular/material/sort'
 
 
 export class MaterialTable {
+
+  showDelay = new FormControl(1000);
+  hideDelay = new FormControl(1000);
 
   title = 'material-table'
   

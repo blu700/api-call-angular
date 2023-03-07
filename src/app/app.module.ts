@@ -10,6 +10,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRippleModule } from '@angular/material/core';
+import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -30,6 +31,7 @@ import { MatRippleModule } from '@angular/material/core';
     MatSortModule,
     MatTooltipModule,
     MatRippleModule,
+    MatFormFieldModule,
   ],
   bootstrap: [MaterialTable]
 })
