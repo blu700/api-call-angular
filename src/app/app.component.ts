@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator'
 import { MatSort } from '@angular/material/sort'
 import { FormControl } from '@angular/forms';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component-material.html',
@@ -15,13 +16,18 @@ import { FormControl } from '@angular/forms';
 
 export class MaterialTable {
 
-  showDelay = new FormControl(1000);
-  hideDelay = new FormControl(1000);
-
   title = 'material-table'
-  
+
   displayedColumns = ['id', 'brand', 'equipment'];
   dataSource!: MatTableDataSource<Product>;
+  showDelay = new FormControl(1000);
+  hideDelay = new FormControl(1000);
+  products: Product[] = [];
+  products2: Product[] = []
+  private paginator: any = MatPaginator;
+  private sort: any = MatSort;
+  private baseUrl = 'https://random-data-api.com/api/v2/appliances?size=' //random data api without size defined***
+  
 
   @ViewChild(MatSort) set MatSort(ms: MatSort) {
     this.sort = ms;
@@ -32,14 +38,6 @@ export class MaterialTable {
     this.paginator = mp;
     this.setDataSourceAttributes();
   }
-
-
-  private paginator: any = MatPaginator;
-  private sort: any = MatSort;
-  private baseUrl = 'https://random-data-api.com/api/v2/appliances?size=' //random data api without size defined***
-
-  products: Product[] = [];
-  products2: Product[] = []
 
   constructor(private http: HttpClient) {
 
