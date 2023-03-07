@@ -1,0 +1,33 @@
+mat-row:nth-child(even){
+    background-color: lightgray;
+}
+
+mat-row {
+    background-color: whitesmoke;
+    transition: .3s;
+}
+
+
+.mat-mdc-table .mat-mdc-row:hover, .mat-mdc-table .mat-mdc-footer-row:hover {
+    background-color: rgb(194, 210, 240);
+}
+
+mat-header-cell {
+    color: rgb(209, 232, 250);
+    font-weight: 800;
+}
+
+mat-header-row {
+    background-color: rgb(3, 30, 66);
+}
+
+div.jumbotron {
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    font-size: xx-large;
+}
