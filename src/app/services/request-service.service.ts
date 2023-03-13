@@ -13,7 +13,7 @@ export class RequestService {
 
   constructor(private http: HttpClient) { }
 
-  getResponse(amount: number): Observable<Product[]> {
+  getProduct(amount: number): Observable<Product[]> {
     return this.http.get<Product[]>(this.baseUrl + amount)
   }
 }

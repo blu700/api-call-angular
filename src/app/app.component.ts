@@ -23,10 +23,8 @@ export class MaterialTable {
   dataSource!: MatTableDataSource<Product>;
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(1000);
- 
   private paginator: any = MatPaginator;
   private sort: any = MatSort;
-  private baseUrl = 'https://random-data-api.com/api/v2/appliances?size=' //random data api without size defined***
   products: Product[] = [];
   products2: Product[] = [];
   
@@ -43,15 +41,15 @@ export class MaterialTable {
 
   constructor(private service: RequestService) {
 
-    this.service.getResponse(100)
+    this.service.getProduct(100)
      .subscribe(      // GET data from random-data-api
         data => {
-          console.log('Product Categories=' + JSON.stringify(data))   // Console logs all 100 pieces of data
+          console.log('Product Categories=' + JSON.stringify(data))   // Console log all 100 pieces of data
           this.products = data
-          this.service.getResponse(20)
+          this.service.getProduct(20)
           .subscribe(   // GET data from random-data-api
               data => {
-                console.log('Product Categories=' + JSON.stringify(data))     // Console logs 20 pieces of data
+                console.log('Product Categories=' + JSON.stringify(data))     // Console log 20 pieces of data
                 this.products2 = data;
                 this.dataSource = new MatTableDataSource(this.products.concat(this.products2)); //combines both product arrays
                 this.setDataSourceAttributes()
