@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator'
 import { MatSort } from '@angular/material/sort'
 import { FormControl } from '@angular/forms';
+import { RequestService } from './services/request-service.service';
 
 
 @Component({
@@ -22,11 +23,12 @@ export class MaterialTable {
   dataSource!: MatTableDataSource<Product>;
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(1000);
-  products: Product[] = [];
-  products2: Product[] = []
+ 
   private paginator: any = MatPaginator;
   private sort: any = MatSort;
   private baseUrl = 'https://random-data-api.com/api/v2/appliances?size=' //random data api without size defined***
+  products: Product[] = [];
+  products2: Product[] = [];
   
 
   @ViewChild(MatSort) set MatSort(ms: MatSort) {
@@ -39,15 +41,15 @@ export class MaterialTable {
     this.setDataSourceAttributes();
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private service: RequestService) {
 
-    this.http
-      .get<any>(`${this.baseUrl}100`).subscribe(      // GET data from random-data-api
+    this.service.getResponse(100)
+     .subscribe(      // GET data from random-data-api
         data => {
           console.log('Product Categories=' + JSON.stringify(data))   // Console logs all 100 pieces of data
-          this.products = data;
-          this.http
-            .get<any>(`${this.baseUrl}20`).subscribe(   // GET data from random-data-api
+          this.products = data
+          this.service.getResponse(20)
+          .subscribe(   // GET data from random-data-api
               data => {
                 console.log('Product Categories=' + JSON.stringify(data))     // Console logs 20 pieces of data
                 this.products2 = data;
