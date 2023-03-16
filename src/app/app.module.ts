@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialTable} from './app.component';
+import { AppComponent } from './app.component';
+import { MaterialTable} from './components/material-table/material-table.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRippleModule } from '@angular/material/core';
-import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -18,7 +19,8 @@ import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-
 
 @NgModule({
   declarations: [
-    MaterialTable
+    AppComponent,
+    MaterialTable,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-
     MatRippleModule,
     MatFormFieldModule,
   ],
-  bootstrap: [MaterialTable]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
 
