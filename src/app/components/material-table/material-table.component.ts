@@ -1,10 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
-import { Product } from 'src/app/common/product';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Product } from 'app/common/product';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator'
 import { MatSort } from '@angular/material/sort'
 import { FormControl } from '@angular/forms';
-import { RequestService } from 'src/app/services/request-service.service';
+import { RequestService } from 'app/services/request-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-material-table',
@@ -13,16 +14,15 @@ import { RequestService } from 'src/app/services/request-service.service';
 })
 
 
-export class MaterialTable {
+export class MaterialTable implements OnInit {
 
   title = 'material-table'
 
-  displayedColumns = ['id', 'brand', 'equipment'];
+  displayedColumns = ['id', 'home', 'name', 'species'];
   dataSource!: MatTableDataSource<Product>;
   showDelay = new FormControl(1000);
   hideDelay = new FormControl(1000);
   products: Product[] = [];
-  products2: Product[] = [];
 
   private paginator: any = MatPaginator;
   private sort: any = MatSort;
@@ -37,32 +37,28 @@ export class MaterialTable {
     this.setDataSourceAttributes();
   }
 
-  constructor(private service: RequestService) {
+  constructor(private service: RequestService, private route: ActivatedRoute) {
 
-    this.service.getProduct(100)
-      .subscribe(      // GET data from random-data-api
-        data => {
-          console.log('Product Categories=' + JSON.stringify(data))   // Console log all 100 pieces of data
+    this.service.getProduct()
+      .subscribe(
+        (data: Product[]) => {
           this.products = data
-          this.service.getProduct(20)
-            .subscribe(   // GET data from random-data-api
-              data => {
-                console.log('Product Categories=' + JSON.stringify(data))     // Console log 20 pieces of data
-                this.products2 = data;
-                this.dataSource = new MatTableDataSource(this.products.concat(this.products2)); //combines both product arrays
-                this.setDataSourceAttributes()
-              })
+          console.log('Product Categories=' + JSON.stringify(data))
+          this.dataSource = new MatTableDataSource(this.products);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+          this.setDataSourceAttributes()
+          if (this.paginator && this.sort) {
+            this.applyFilter('');
+          }
         }
       )
   }
+  ngOnInit(): void {
+  }
 
   setDataSourceAttributes() {  // formats data to be sorted and paginated
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-
-    if (this.paginator && this.sort) {
-      this.applyFilter('');
-    }
+ 
   }
 
   applyFilter(filterValue: string) {

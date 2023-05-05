@@ -1,9 +1,9 @@
 export interface Product {
 
-    id: number,
-    uid: string,
-    brand: string,
-    equipment: string,
+    id: string,
+    home: string,
+    name: string,
+    species: string
 
 
 }

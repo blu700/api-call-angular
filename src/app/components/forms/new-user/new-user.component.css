@@ -1,0 +1,20 @@
+button {
+    margin: 20px;
+    border: none;
+    background-color: rgb(3, 30, 66);
+    color: rgb(209, 232, 250);
+    transition: .3s;
+    border-radius: 5px;
+    padding: 0px 15px;
+
+}
+
+button:hover {
+
+    opacity: 60%;
+    transition: .3s;
+}
+
+#new-user-form{
+    size: 400px;
+}

@@ -31,3 +31,26 @@ div.jumbotron {
     padding: 10px 10px;
     font-size: xx-large;
 }
+
+button {
+   margin: 20px;
+    border: none;
+    background-color: rgb(3, 30, 66);
+    transition: .3s;
+    border-radius: 5px;
+    color: rgb(209, 232, 250);
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+button:hover{
+
+    opacity: 60%;
+    transition: .3s;
+}
+
+#trek-table {
+    display: block;
+    overflow: scroll;
+}

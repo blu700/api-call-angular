@@ -1,26 +1,7 @@
 
-<!-- 
-    This was the table display without material design.
-
-     -- Not being used.   
--->
-
-<table class="table hover">
-
-  <thead class="table-dark">
-      <tr>
-          <th>id</th>
-          <th>brand</th>
-          <th>item</th>
-      </tr>
-  </thead>
-
-  <tbody>
-      <tr *ngFor="let tempProduct of products">
-          <td class="align-middle">{{tempProduct.id}}</td>
-          <td class="align-middle">{{tempProduct.brand}}</td>
-          <td class="align-middle">{{tempProduct.equipment}}</td>
-      </tr>
-  </tbody>
-
-</table>
+<body>
+    <router-outlet>
+        <my-app></my-app>
+        <app-new-user></app-new-user>
+      </router-outlet>
+</body>

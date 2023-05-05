@@ -12,17 +12,28 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { NewUserComponent } from './components/forms/new-user/new-user.component';
+import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
-
+const routes: Routes = [
+  {path: 'users/new', component: NewUserComponent},
+  {path: 'users' , component: MaterialTable},
+  {path: '', redirectTo: 'users', pathMatch: 'full'},
+  {path: '**', redirectTo: 'users', pathMatch: 'full'}
+]
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MaterialTable,
+    NewUserComponent,
   ],
   imports: [
+    
+    RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
     CommonModule,
@@ -34,6 +45,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatTooltipModule,
     MatRippleModule,
     MatFormFieldModule,
+    FormsModule
   ],
   bootstrap: [AppComponent]
 })

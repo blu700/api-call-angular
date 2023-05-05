@@ -62,9 +62,11 @@
           "configurations": {
             "production": {
               "browserTarget": "api-call-angular:build:production"
+              
             },
             "development": {
-              "browserTarget": "api-call-angular:build:development"
+              "browserTarget": "api-call-angular:build:development",
+              "proxyConfig": "./proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
