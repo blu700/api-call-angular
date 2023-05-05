@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Project Details
 
-This project is a practice for displaying a table of data called from Random-data-api.
+NEW:: application now uses server built on 'https://github.com/blu700/faker' 
 
 ## Development server
 
