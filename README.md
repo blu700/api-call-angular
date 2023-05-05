@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Project Details
 
-NEW:: application now uses server built on 'https://github.com/blu700/faker' 
+NEW:: On branch "Main" -- application now uses server built on 'https://github.com/blu700/faker' 
 
 ## Development server
 
