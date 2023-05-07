@@ -12,7 +12,7 @@ import { RequestService } from 'app/services/request-service.service';
 export class EditUserComponent implements OnInit {
 
 
-  User: Product={id: '', name: '', home: '', species: ''}
+  User: Product={uuid: '', id: '', name: '', home: '', species: ''}
 
   userId!: string | null;
 

@@ -1,6 +1,7 @@
 export interface Product {
 
-    id: string,
+    uuid: string,
+    id: string
     home: string,
     name: string,
     species: string
