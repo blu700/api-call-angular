@@ -23,14 +23,13 @@ export class NewUserComponent implements OnInit {
   postId: any;
 
   onSubmit(NewUser: NewUser) { 
-    
     console.log(`Sending NewUser as Post body to server: ` + JSON.stringify(NewUser))
     this.service.addUserToTable(NewUser).subscribe(data => this.postId = data)
+    console.log(this.postId)
     this.submitted = true
   }
 
   constructor(private service: RequestService) {
-
     this.service.getHomes()
     .subscribe(
       (data: Homes[]) => {

@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Product } from 'app/common/product';
+import { Product } from 'app/common/classes/product';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator'
 import { MatSort } from '@angular/material/sort'
 import { FormControl } from '@angular/forms';
 import { RequestService } from 'app/services/request-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterEvent } from '@angular/router';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { delay, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-material-table',
@@ -37,7 +39,7 @@ export class MaterialTable implements OnInit {
     this.setDataSourceAttributes();
   }
 
-  constructor(private service: RequestService, private route: ActivatedRoute) {
+  constructor(private service: RequestService, private router: Router) {
 
     this.service.getProduct()
       .subscribe(
@@ -55,7 +57,14 @@ export class MaterialTable implements OnInit {
       )
   }
   ngOnInit(): void {
+    this.router.events
+    .pipe(
+      delay(10),
+      filter((e) => e instanceof NavigationEnd),
+    )
   }
+
+  
 
   setDataSourceAttributes() {  // formats data to be sorted and paginated
  
@@ -65,5 +74,10 @@ export class MaterialTable implements OnInit {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  editRow(rowId: String) {
+    this.router.navigate(['/users/edit', rowId]);
+    console.log(rowId);
   }
 }

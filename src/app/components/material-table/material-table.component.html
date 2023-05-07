@@ -44,7 +44,7 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-    <mat-row matRipple *matRowDef="let row; columns: displayedColumns;" class="mat-row"></mat-row>
+    <mat-row matRipple (click)="editRow(row.id)" *matRowDef="let row; columns: displayedColumns;" class="mat-row"></mat-row>
   </mat-table>
 
   <mat-paginator #dataPaginator [pageSizeOptions]="[20, 40, 60]"></mat-paginator>

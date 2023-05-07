@@ -15,13 +15,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NewUserComponent } from './components/forms/new-user/new-user.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
 const routes: Routes = [
-  {path: 'users/new', component: NewUserComponent},
   {path: 'users' , component: MaterialTable},
+  {path: 'users/edit/:id', component: EditUserComponent},
+  {path: 'users/new', component: NewUserComponent},
   {path: '', redirectTo: 'users', pathMatch: 'full'},
-  {path: '**', redirectTo: 'users', pathMatch: 'full'}
+  {path: '**', redirectTo: 'users', pathMatch: 'full'}, //page not found component || soon.
+  
 ]
 
 
@@ -30,6 +33,7 @@ const routes: Routes = [
     AppComponent,
     MaterialTable,
     NewUserComponent,
+    EditUserComponent,
   ],
   imports: [
     
@@ -48,6 +52,8 @@ const routes: Routes = [
     FormsModule
   ],
   bootstrap: [AppComponent]
+  
+  
 })
 export class AppModule { }
 

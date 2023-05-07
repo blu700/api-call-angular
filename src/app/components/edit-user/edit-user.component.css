@@ -14,7 +14,3 @@ button:hover {
     opacity: 60%;
     transition: .3s;
 }
-
-#new-user-form{
-    width: auto;
-}

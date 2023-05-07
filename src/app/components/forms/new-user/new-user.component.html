@@ -8,7 +8,7 @@
 <form (ngSubmit)="onSubmit(NewUser)">
   <h2>New User</h2>
   {{ NewUser | json }}
-  
+
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" required [(ngModel)]="NewUser.name" name="name">

@@ -1,0 +1,27 @@
+
+
+
+<p>edit-user works! {{User | json}}</p>
+
+<form (ngSubmit)="onSubmit(User)">
+<button routerLink="users" routerLinkActive="active">
+    <h4>Back</h4>
+  </button>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="User.name" name="name" value="{{User.name}}">
+    </div>
+  
+    <div class="form-group">
+      <label for="species">Species</label>
+      <input type="text" class="form-control" id="species" required [(ngModel)]="User.species" name="species" value="{{User.species}}">
+    </div>
+    <div class="form-group">
+      <label for="home">Home</label>
+      <input type="text" class="form-control" id="home" required [(ngModel)]="User.home" name="home" value="{{User.home}}">
+    </div>
+    <div>
+        <button class="btn">Submit</button>
+      </div>
+</form>
