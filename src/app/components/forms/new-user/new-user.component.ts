@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Homes } from 'app/common/classes/homes';
 import { NewUser } from 'app/common/classes/new-user';
 import { RequestService } from 'app/services/request-service.service';
@@ -27,9 +28,10 @@ export class NewUserComponent implements OnInit {
     this.service.addUserToTable(NewUser).subscribe(data => this.postId = data)
     console.log(this.postId)
     this.submitted = true
+    this.router.navigate(['user']);
   }
 
-  constructor(private service: RequestService) {
+  constructor(private service: RequestService, private router: Router) {
     this.service.getHomes()
     .subscribe(
       (data: Homes[]) => {

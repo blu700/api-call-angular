@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NewUser } from 'app/common/classes/new-user';
 import { Product } from 'app/common/classes/product';
 import { RequestService } from 'app/services/request-service.service';
@@ -20,7 +20,7 @@ export class EditUserComponent implements OnInit {
 
   postId: any;
 
-  constructor (private service: RequestService, private route: ActivatedRoute) {
+  constructor (private service: RequestService, private route: ActivatedRoute, private router: Router) {
     this.route.paramMap.subscribe((params) => {
       const userId = params.get('id');
       console.log(userId)
@@ -36,6 +36,7 @@ export class EditUserComponent implements OnInit {
     this.service.editCurrentUser(User).subscribe(data => this.postId = data)
     console.log(this.postId)
     this.submitted = true
+    this.router.navigate(['user']);
   }
 
 
