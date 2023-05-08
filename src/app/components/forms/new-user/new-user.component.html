@@ -2,35 +2,36 @@
   <h4>Back</h4>
 </button>
 <hr>
-<div class="col-lg-4">
-</div>
-<div class="ng-container col-lg-4" id="new-user-form">
-<form (ngSubmit)="onSubmit(NewUser)">
-  <h2>New User</h2>
-  {{ NewUser | json }}
-
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="NewUser.name" name="name">
-    </div>
+<ng-container>
+  <div class="col-lg-4">
+  </div>
   
-    <div class="form-group">
-      <label for="species">Species</label>
-      <select [(ngModel)]="NewUser.species" class="form-control" id="species" name="species" required>
-        <option *ngFor="let s of species" [ngValue]="s">{{s}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="home">Home</label>
-      <select [(ngModel)]="NewUser.home" class="form-control" id="home" name="home" required>
-        <option *ngFor="let h of home" [ngValue]="h.home">{{h.home}}</option>
-      </select>
-    </div>
-    <div>
-      <button class="btn" >Submit</button>
-    </div>
-  </form>
-</div>
-<div class="col-lg-4">
+    <form (ngSubmit)="onSubmit(NewUser)" class="col-lg-4">
+      <h2>New User</h2>
 
-</div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="NewUser.name" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="species">Species</label>
+        <select [(ngModel)]="NewUser.species" class="form-control" id="species" name="species" required>
+          <option *ngFor="let s of species" [ngValue]="s">{{s}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="home">Home</label>
+        <select [(ngModel)]="NewUser.home" class="form-control" id="home" name="home" required>
+          <option *ngFor="let h of home" [ngValue]="h.home">{{h.home}}</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn">Submit</button>
+      </div>
+    </form>
+ 
+  <div class="col-lg-4">
+
+  </div>
+</ng-container>

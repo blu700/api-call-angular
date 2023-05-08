@@ -1,3 +1,7 @@
+* {
+    user-select: none;
+}
+
 mat-row:nth-child(even){
     background-color: lightgray;
 }
